@@ -1,1 +1,2 @@
 This is the readme for this directory
+![](https://www.google.com/imgres?imgurl=https%3A%2F%2Fshalb.com%2Fwp-content%2Fuploads%2F2019%2F11%2FDevops1-1024x669.jpeg&imgrefurl=https%3A%2F%2Fshalb.com%2Fblog%2Fwhat-is-devops-and-where-is-it-applied%2F&tbnid=XJHqI6uqSOdU_M&vet=12ahUKEwjBv9TD3Z79AhV3nCcCHQa7A6UQMygCegUIARDgAQ..i&docid=v5dpDgITnJ9JFM&w=1024&h=669&q=devops&ved=2ahUKEwjBv9TD3Z79AhV3nCcCHQa7A6UQMygCegUIARDgAQ)
