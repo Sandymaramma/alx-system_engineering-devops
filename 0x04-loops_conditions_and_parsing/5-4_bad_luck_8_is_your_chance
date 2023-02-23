@@ -1,15 +1,14 @@
 #!/usr/bin/env bash
-#This is a Bash script that loops from 1 to 10 using while
-
-a=0
-while [ $a -lt 10 ]
-do 
-	if [ "$a" -eq '3' ]; then
-		echo "Bad luck"
-	elif [ "$a" -eq '7' ]; then
-		echo "Good luck"
-	else 
-		echo "Best School"
-	fi
-	((a++))
+# This script is displaying "Best School" 10 times
+my_store=0
+while [ $my_store -lt 10 ]
+do
+        if [[ "$my_store" -eq '3' ]]; then
+                echo "bad luck"
+        elif [[ "$my_store" -eq '7' ]]; then
+                echo "good luck"
+        else
+                echo "Best School"
+        fi
+        ((my_store++))
 done
