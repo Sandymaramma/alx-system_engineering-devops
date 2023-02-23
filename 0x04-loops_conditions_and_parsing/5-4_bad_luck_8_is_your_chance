@@ -4,9 +4,9 @@
 a=0
 while [ $a -lt 10 ]
 do 
-	if [ "$a" -eq "3" ]; then
+	if [ "$a" -eq '3' ]; then
 		echo "Bad luck"
-	elif [ "$a" -eq "7" ]; then
+	elif [ "$a" -eq '7' ]; then
 		echo "Good luck"
 	else 
 		echo "Best School"
