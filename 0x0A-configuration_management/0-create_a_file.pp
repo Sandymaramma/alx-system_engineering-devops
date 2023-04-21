@@ -1,4 +1,4 @@
-Puppet was used to create a file in /tmp
+# Puppet was used to create a file in /tmp
 
 file { '/tmp/school':
     ensure  => 'file',
