@@ -17,7 +17,7 @@ SERVER_CONFIG=\
 		try_files \$uri \$uri/ =404;
 	}
 	if (\$request_filename ~ redirect_me){
-		rewrite ^ https://www.alxafrica.com/software-engineering/ permanent;
+		rewrite ^ https://www.facebook.com/sandra.udeike?mibextid=ZbWKwL permanent;
 	}
 }"
 
