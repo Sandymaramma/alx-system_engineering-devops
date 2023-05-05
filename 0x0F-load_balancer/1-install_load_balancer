@@ -1,26 +1,21 @@
 #!/usr/bin/env bash
-# Install HAproxy on clean ubuntu 14.04 machine and setup to proxy requests
-# between 144-web-01 and 144-web-02.
+# Installation and configuration of  HAproxy on your lb-01 server.
 
-apt-get update -y && \
-apt-get install -y software-properties-common && \
-add-apt-repository -y ppa:vbernat/haproxy-1.7 && \
-apt-get update -y && \
-apt-get install -y haproxy && \
-if [ -e '/etc/haproxy/haproxy.cfg.orig' ]
-then
-    cat /etc/haproxy/haproxy.cfg.orig > /etc/haproxy/haproxy.cfg
-else
-    cp /etc/haproxy/haproxy.cfg /etc/haproxy/haproxy.cfg.orig
-fi
-echo -e \
-"\nlisten load_balancer
-\tbind :80
-\tmode http
-\tstats enable
-\tstats uri /haproxy?stats
-\tbalance roundrobin
-\tserver 144-web-01 142.44.167.235:80 check
-\tserver 144-web-02 144.217.246.199:80 check" \
-    >> /etc/haproxy/haproxy.cfg
+# Install HAproxy on a server
+sudo apt-get update
+sudo apt-get upgrade
+sudo apt-get -y install haproxy
+sudo cp /etc/haproxy/haproxy.cfg /etc/haproxy/haproxy.cfg.original2
+sudo echo "
+# Configuration of Haproxy using round robin algirithm
+frontend sandymma.tech
+        bind 0:80
+        mode http
+        default_backend web-backend
+backend web-backend
+        balance roundrobin
+        server 181691-web-01 54.146.56.165:80 check
+        server 181691-web-02 100.26.169.126:80 check
+" | sudo tee -a /etc/haproxy/haproxy.cfg
+# Restart HAproxy service
 service haproxy restart
