@@ -13,4 +13,22 @@ You can post your blog post on the platform of your choice, LinkedIn or Medium a
 A README.md file, at the root of the folder of the project, is mandatory
 More Info
 Manual QA Review
-It is your responsibility to request a review for your blog from a peer before the project’s deadline. If no peers have been reviewed, you should request a review from a TA or staff member.
+
+
+The diagram should show:
+
+DNS resolution
+that the request hitting server IP on the appropriate port
+that the traffic is encrypted
+that the traffic goes through a firewall
+that the request is distributed via a load balancer
+that the web server answers the request by serving a web page
+that the application server generates the web page
+that the application server request data from the database
+Gliffy is free and what I personally use, but feel free to use what fits you best.
+
+Some unrelated examples:
+
+content://com.android.chrome.FileProvider/images/screenshot/1684099577928838296009.png
+
+content://com.android.chrome.FileProvider/images/screenshot/16840994265991758300488.png
