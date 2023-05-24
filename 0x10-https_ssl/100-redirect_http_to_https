@@ -53,8 +53,8 @@ frontend sandymma_https
 backend web-backend
 	balance roundrobin
    	redirect scheme https if !{ ssl_fc }
-   	server web-01 10.247.5.227:80 check
-   	server web-02 10.247.146:80 check
+   	server web-01 100.25.3.168:80 check
+   	server web-02 52.86.148.36:80 check
 
 backend letsencrypt-backend
    	server letsencrypt 127.0.0.1:54321
