@@ -14,8 +14,8 @@ frontend sandymma.tech
         default_backend web-backend
 backend web-backend
         balance roundrobin
-        server 181691-web-01 54.146.56.165:80 check
-        server 181691-web-02 100.26.169.126:80 check
+        server 181691-web-01 100.25.3.168:80 check
+        server 181691-web-02 52.86.148.36:80 check
 " | sudo tee -a /etc/haproxy/haproxy.cfg
 # Restart HAproxy service
 service haproxy restart
