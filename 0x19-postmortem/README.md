@@ -1,39 +1,33 @@
-# Postmortem: Outage in Web Application
+## 0x19. Postmortem
+DevOps
+SysAdmin
 
-## Issue Summary:
-Duration: June 4, 2023, 10:00 AM - June 4, 2023, 2:00 PM (PST)
-Impact: The web application experienced downtime, resulting in an inability for users to access the service. 
-Approximately 30% of users were affected, leading to significant customer dissatisfaction and loss of potential business opportunities.
+ By: Sylvain Kalache
+ Weight: 1
+ Project will start Jun 5, 2023 6:00 AM, must end by Jun 12, 2023 6:00 AM
+ Manual QA review must be done (request it when you are done with the project)
+Concepts
+For this project, we expect you to look at this concept:
 
-## Timeline:
-10:00 AM: The issue was initially detected when monitoring alerts indicated a sudden spike in error rates and a decrease in API response times.
-10:05 AM: The engineering team received automated alerts about the abnormal server behavior.
-10:10 AM: Engineers started investigating the issue, focusing on the backend server infrastructure and network connectivity.
-10:30 AM: Initial assumption was that the issue might be related to the database, so the database servers were thoroughly checked for any anomalies.
-11:00 AM: Investigations into the database didn't reveal any issues. Attention was then shifted to the load balancer configuration.
-11:30 AM: After examining the load balancer logs, it was determined that the issue did not originate from the load balancer.
-12:00 PM: As a last resort, the team inspected the application logs, where they discovered the unhandled exception causing the server crashes.
-12:30 PM: The incident was escalated to the backend development team and the infrastructure team.
-1:00 PM: The root cause of the issue was identified as a race condition in a critical code path of the backend API.
-1:30 PM: The backend development team implemented a hotfix to address the race condition and prevent server crashes.
-2:00 PM: The hotfix was deployed, and the web application was fully restored to normal operation.
+On-call
+Background Context
 
-## Root Cause and Resolution:
-The root cause of the issue was a race condition occurring in a critical code path of the backend API. Under certain load conditions, multiple threads were accessing and modifying shared resources simultaneously, leading to an unhandled exception and subsequent server crashes. 
-The issue was fixed by implementing appropriate synchronization mechanisms and locking strategies to ensure thread safety and prevent the race condition from occurring.
 
-## Corrective and Preventative Measures:
-Improve Code Review Process: Enhance the code review process to specifically focus on identifying potential race conditions and ensuring proper synchronization techniques are applied.
-Increase Load Testing: Conduct comprehensive load testing scenarios to identify and address any performance bottlenecks and uncover race conditions under heavy load.
-Enhance Monitoring and Alerting: Implement more granular monitoring and alerting mechanisms to quickly detect abnormal error rates, response times, and server crashes.
-Improve Logging and Error Handling: Enhance logging and error handling mechanisms to capture and handle unhandled exceptions more effectively, providing better visibility into critical issues.
-Incident Response Training: Conduct regular incident response training sessions to ensure swift detection, investigation, and resolution of issues, and improve overall response time.
+Any software system will eventually fail, and that failure can come stem from a wide range of possible factors: bugs, traffic spikes, security issues, hardware failures, natural disasters, human error… Failing is normal and failing is actually a great opportunity to learn and improve. Any great Software Engineer must learn from his/her mistakes to make sure that they won’t happen again. Failing is fine, but failing twice because of the same issue is not.
 
-## Tasks to Address the Issue:
+A postmortem is a tool widely used in the tech industry. After any outage, the team(s) in charge of the system will write a summary that has 2 main goals:
 
-- Apply code changes to incorporate proper synchronization mechanisms in the critical code path.
-- Conduct load testing with various scenarios and user loads to ensure the fix resolves the issue under different conditions.
-- Enhance monitoring and alerting system to include additional metrics for error rates, response times, and server health.
-- Review and update the code review process to include a checklist for identifying and mitigating race conditions.
-- Improve logging and error handling mechanisms to capture and report unhandled exceptions effectively.
-By implementing these corrective measures and addressing the identified tasks, we aim to prevent similar out.
+To provide the rest of the company’s employees easy access to information detailing the cause of the outage. Often outages can have a huge impact on a company, so managers and executives have to understand what happened and how it will impact their work.
+And to ensure that the root cause(s) of the outage has been discovered and that measures are taken to make sure it will be fixed.
+Resources
+Read or watch:
+
+Incident Report, also referred to as a Postmortem
+The importance of an incident postmortem process
+What is an Incident Postmortem?
+More Info
+Manual QA Review
+It is your responsibility to request a review for your postmortem from a peer before the project’s deadline. If no peers have been reviewed, you should request a review from a TA or staff member.
+
+
+https://images.search.yahoo.com/search/images?p=diagrams+about+postmoterm+in+software+engineering&fr=yhs-invalid&imgurl=https%3A%2F%2Ffiverr-res.cloudinary.com%2Fimages%2Ft_main1%2Cq_auto%2Cf_auto%2Fgigs%2F118055372%2Foriginal%2F6e23dbc61cba65c7a77fe99cc86a2c3b7f208995%2Fhelp-you-in-software-engineering-tasks-and-make-uml-diagrams.png#id=107&iurl=https%3A%2F%2Fapiumhub.com%2Fwp-content%2Fuploads%2F2021%2F02%2FScreenshot-2021-06-09-at-11.18.42.png&action=click
